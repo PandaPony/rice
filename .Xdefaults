@@ -1,0 +1,53 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintfull
+
+urxvt.scrollBar: false
+urxvt.font    : xft:System San Francisco LG M DZ:regular:size=11
+urxvt.boldfont: xft:System San Francisco LG M DZ:bold   :size=11
+!urxvt.font    : xft:Meslo LG M DZ:regular:size=11
+!urxvt.boldfont: xft:Meslo LG M DZ:bold   :size=11
+
+URxvt.depth: 32
+URxvt.transparent: false
+URxvt.fading: 0
+URxvt.loginShell: true
+URxvt.saveLines: 20000
+URxvt.internalBorder: 3
+URxvt.lineSpace: 0
+
+URxvt*background: #101010
+*foreground: #CCCCCC
+URxvt*color0: #101010
+URxvt*color1: #960050
+URxvt*color2: #66aa11
+URxvt*color3: #c47f2c
+URxvt*color4: #30309b
+URxvt*color5: #7e40a5
+URxvt*color6: #3579a8
+URxvt*color7: #9999aa
+URxvt*color8: #303030
+URxvt*color9: #ff0090
+URxvt*color10: #80ff00
+URxvt*color11: #ffba68
+URxvt*color12: #5f5fee
+URxvt*color13: #bb88dd
+URxvt*color14: #4eb4fa
+URxvt*color15: #d0d0d0
+
+URxvt*font: xft:San Francisco:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:San Francisco:pixelsize=12:antialias=true:hinting=true
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+
+! Change colors by keypress
+xterm*dynamicColors: true
+URxvt*dynamicColors: on
+URxvt*perl-ext-common: urxvt-colors
+URxvt*perl-lib: ~/
+URxvt*keysym.F12: perl:urxvt-colors:
+dynamic-colors init
+exec dynamic-colors init
+
