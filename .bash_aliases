@@ -1,5 +1,5 @@
 #Configs
-alias cfa="vim ~/.config/mutt/aliases"
+alias cfa="vim ~/.bash_aliases"
 
 #DevOps
 #Todo: Stop hardcoding punk

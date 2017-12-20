@@ -1,9 +1,10 @@
+set encoding=utf-8
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-"set number                     " Show current line number
-"set relativenumber             " Show relative line numbers
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
 set clipboard=unnamedplus
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
