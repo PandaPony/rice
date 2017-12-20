@@ -1,0 +1,273 @@
+snippet img "Placehold.it"
+![param1](http://via.placeholder.com/3302x2070/88257b/ffffff?text=Desktop) 
+endsnippet
+snippet dtwk "Weeknumber now"
+`date +%V`
+endsnippet
+snippet gantta "Gantt chart Advanced"
+\`\`\`mermaid
+gantt
+       dateFormat  YYYY-MM-DD
+       title Adding GANTT diagram functionality to mermaid
+
+       section A section
+       Completed task            :done,    des1, 2014-01-06,2014-01-08
+       Active task               :active,  des2, 2014-01-09, 3d
+       Future task               :         des3, after des2, 5d
+       Future task2              :         des4, after des3, 5d
+
+       section Critical tasks
+       Completed task in the critical line :crit, done, 2014-01-06,24h
+       Implement parser and jison          :crit, done, after des1, 2d
+       Create tests for parser             :crit, active, 3d
+       Future task in critical line        :crit, 5d
+       Create tests for renderer           :2d
+       Add to mermaid                      :1d
+
+       section Documentation
+       Describe gantt syntax               :active, a1, after des1, 3d
+       Add gantt diagram to demo page      :after a1  , 20h
+       Add another diagram to demo page    :doc1, after a1  , 48h
+
+       section Last section
+       Describe gantt syntax               :after doc1, 3d
+       Add gantt diagram to demo page      :20h
+       Add another diagram to demo page    :48h
+       
+\`\`\`
+endsnippet
+snippet gantt "GanttChart"
+\`\`\`mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+\`\`\`
+endsnippet
+snippet seq "SequenceDiagram"
+\`\`\`mermaid
+sequenceDiagram
+participant ${1:A}
+participant ${2:B}
+$1->>$2:${3:Request}
+$2->>$1:${4:Return}
+\`\`\`
+endsnippet
+snippet flow "FlowchartDiagram"
+\`\`\`mermaid
+graph TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+\`\`\`
+endsnippet
+snippet class "ClassDiagram"
+\`\`\`mermaid
+classDiagram
+Class01 <|-- AveryLongClass : Cool
+Class03 -- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --> C2 : Where am i?
+Class09 -- C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 <--> C2: Cool label
+\`\`\`
+endsnippet
+snippet job "Job"
+## Job: ${1:Do (verb)} ${2:a (Noun)} ${3:to get this result}
+
+### Abstract
+${4:Triggered by this event I need this result}
+
+### Prerequisites
+  - ${5:Registered account e.g. zapier}
+
+### Parameter
+  - ${6:key:value}
+  - ${7:key:value}
+  - ${8:key:value}
+
+### Steps
+  - ${9:process}
+  - ${10:process}
+  - ${11:process}
+
+### Expected test results
+  - ${12:Can create}
+  - ${13:Can read}
+  - ${14:Can update}
+  - ${15:Can delete}
+
+### Milestones
+  - ${16:Value from process is}
+  - ${17:Value from process is}
+
+### Expected time for finish
+  - ${18:3} workdays from contract start
+
+#### Resources
+  - ${19:Links, Screenshots, Workflowdiagrams} 
+
+#### Notes
+  - Communication channels:${20: Upwork}
+  - Workdays:${21: Monday to Friday}
+  - ${22:Questions not covered in this description must be asked prior before applying the job}
+  - Expense reimbursement: $${23:00}
+
+#### Tags
+  - ${21:Frameworks}, ${22:Paradigms},${23:APIs}  
+
+endsnippet
+
+snippet /\[|\*\s?/ "todo" br
+* [ ] $0
+endsnippet
+
+snippet t "today"
+`!p
+from datetime import datetime
+if not snip.c:
+    snip.rv = datetime.now().strftime('%Y-%m-%d')`
+endsnippet
+
+snippet bestellung "Bestellung"
+* [ ] Bestellung: $1 ($2 €)
+  * [ ] Lieferung
+  * [ ] Rücksenden
+  * [ ] Rückzahlung
+endsnippet
+
+#############
+#  Reviews  #
+#############
+
+snippet KW "Weekly Review"
+# KW `date +%V`
+
+## Was war gut? (Was sollte ich wiederholen?)
+  - $2
+
+## Was war nicht so gut? (Was sollte ich diese mal vermeiden?)
+  - [ ] $3
+
+## Was sind meine 2-3 Top Prioritäten diese Woche?
+  - [ ] $4
+
+## Welche Ziele habe ich für die Prioritäten? Welche Schritte unternehme ich um die Ziele zu erreichen?
+  - [ ] $5
+endsnippet
+
+
+##############
+#  Markdown  #
+##############
+
+priority -50
+
+global !p
+def create_table(snip):
+    # retrieving single line from current string and treat it like tabstops count
+    placeholders_string = snip.buffer[snip.line].strip()[2:].split("x",1)
+    rows_amount = int(placeholders_string[0])
+    columns_amount = int(placeholders_string[1])
+
+    # erase current line
+    snip.buffer[snip.line] = ''
+
+    # create anonymous snippet with expected content and number of tabstops
+    anon_snippet_title = ' | '.join(['$' + str(col) for col in range(1,columns_amount+1)]) + "\n"
+    anon_snippet_delimiter = ':-|' * (columns_amount-1) + ":-\n"
+    anon_snippet_body = ""
+    for row in range(1,rows_amount+1):
+        anon_snippet_body += ' | '.join(['$' + str(row*columns_amount+col) for col in range(1,columns_amount+1)]) + "\n"
+    anon_snippet_table = anon_snippet_title + anon_snippet_delimiter + anon_snippet_body
+
+    # expand anonymous snippet
+    snip.expand_anon(anon_snippet_table)
+endglobal
+
+###########################
+# Sections and Paragraphs #
+###########################
+snippet sec "Section" b
+# ${1:Section Name} #
+$0
+endsnippet
+
+snippet ssec "Sub Section" b
+## ${1:Section Name} ##
+$0
+endsnippet
+
+snippet sssec "SubSub Section" b
+### ${1:Section Name} ###
+$0
+endsnippet
+
+snippet par "Paragraph" b
+#### ${1:Paragraph Name} ####
+$0
+endsnippet
+
+snippet spar "Paragraph" b
+##### ${1:Paragraph Name} #####
+$0
+endsnippet
+
+################
+# Common stuff #
+################
+snippet link "Link to something"
+[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}})$0
+endsnippet
+
+snippet img "Image"
+![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+endsnippet
+
+snippet ilc "Inline Code" i
+\`$1\`$0
+endsnippet
+
+snippet cbl "Codeblock" b
+\`\`\`
+$1
+\`\`\`
+$0
+endsnippet
+
+snippet refl "Reference Link"
+[${1:${VISUAL:Text}}][${2:id}]$0
+
+[$2]:${4:http://${3:www.url.com}} "${5:$4}"
+endsnippet
+
+snippet fnt "Footnote"
+[^${1:${VISUAL:Footnote}}]$0
+
+[^$1]:${2:Text}
+endsnippet
+
+pre_expand "create_table(snip)"
+snippet "tb(\d+x\d+)" "Customizable table" br
+endsnippet
+
+# vim:ft=snippets:
