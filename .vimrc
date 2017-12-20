@@ -119,7 +119,7 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack                                                                           
 cnoreabbrev Ag Ack                                                                           
 cnoreabbrev AG Ack  
-nmap Ã¶ :
+nmap ö :
 autocmd Filetype vimwiki map <F4> :!pandoc<space><C-r>%<space>-o<space><C-r>%.pdf<Enter><Enter>
 " Todo Pipe > Handle pdf file size. Script below is proof (200MB > 2.9MB)
 "gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -sOutputFile=output.pdf input.pdf
