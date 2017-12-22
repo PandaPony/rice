@@ -29,4 +29,5 @@ alias sp1="vlc ~/Downloads/PR_58b31c69-f30a-aeda-3c6e-90e295ae6108.mp3"
 
 # Whatever foo stuff
 alias man="BROWSER=chromium man -H"
-ta() { task add $1 due:$2;}
+# Todo: Add task via ROFI
+# ta() { task add $1 due:$2;}

@@ -1,10 +1,9 @@
-set encoding=utf-8
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-set number                     " Show current line number
-set relativenumber             " Show relative line numbers
+"set number                     " Show current line number
+"set relativenumber             " Show relative line numbers
 set clipboard=unnamedplus
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -54,6 +53,7 @@ Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'tbabej/taskwiki'
 Plugin 'powerman/vim-plugin-AnsiEsc'
+Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'dermusikman/sonicpi'
 "Plugin 'reedes/vim-pencil'
 
@@ -65,7 +65,7 @@ set omnifunc=syntaxcomplete#Complete
 syntax on
 let g:solarized_termcolors=256
 colorscheme solarized
-set background=light
+set background=dark
 " Restore this liine u <buffer> <C-S-h> :write \| let @+ = system("pandoc -t html " . shellescape(expand("%:p")))<CR>
 
 " Convert pandoc buffer to HTML and copy to system clipboard
@@ -119,7 +119,7 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack                                                                           
 cnoreabbrev Ag Ack                                                                           
 cnoreabbrev AG Ack  
-nmap ö :
+nmap Ã¶ :
 autocmd Filetype vimwiki map <F4> :!pandoc<space><C-r>%<space>-o<space><C-r>%.pdf<Enter><Enter>
 " Todo Pipe > Handle pdf file size. Script below is proof (200MB > 2.9MB)
 "gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -sOutputFile=output.pdf input.pdf
@@ -160,3 +160,4 @@ endfunction
 " Should show full path..not working :/
 " let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#wordcount#enabled = 1
+"let g:livepreview_previewer = 'mupdf'
