@@ -2,14 +2,14 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-"set number                     " Show current line number
-"set relativenumber             " Show relative line numbers
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
 set clipboard=unnamedplus
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar" 
-"set guifont=Monospace\ 7
+set guifont=Monospace\ 10
 let mapleader = " "
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -52,7 +52,7 @@ Plugin 'DrawIt'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'tbabej/taskwiki'
-Plugin 'powerman/vim-plugin-AnsiEsc'
+Plugin 'powerman/vim-plugin-AnsiEsc' "Taskwiki: Adds color support in charts.
 Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'dermusikman/sonicpi'
 "Plugin 'reedes/vim-pencil'
@@ -160,4 +160,7 @@ endfunction
 " Should show full path..not working :/
 " let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#wordcount#enabled = 1
-"let g:livepreview_previewer = 'mupdf'
+let g:livepreview_previewer = 'mupdf'
+let g:livepreview_engine = 'xelatex'
+nmap <F8> :LLPStartPreview<cr>
+set updatetime=1000
