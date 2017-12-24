@@ -1,6 +1,3 @@
-#Configs
-alias cfa="vim ~/.bash_aliases"
-
 #Todo: Stop hardcoding punk
 
 #DevOps
@@ -8,10 +5,7 @@ alias cfa="vim ~/.bash_aliases"
 alias f="wp gf form edit 4 --ssh=yes --path=\"/var/www/vhosts/i-0a1b40470e828a142\""
 
 ##Full stack setup for automated acceptance testing - Docker, Codeception, PHP, Gravity Flow. Guide: https://www.stevenhenty.com/acceptance-testing-wordpress-plugins/
-alias tst="ssh -i ~/.ssh/UbuntuAWS.pem ubuntu@ec2-18-195-202-122.eu-central-1.compute.amazonaws.com"
-alias rdb="ssh wp@bb99s.myraidbox.de"
-# Check .ssh/config for line below ..ssh alias blabla
-alias sswp="ssh yes"
+alias tst="ssh yes"
 
 #Env
 alias drk="dynamic-colors switch solarized-dark"
@@ -35,3 +29,49 @@ alias sp1="vlc ~/Downloads/PR_58b31c69-f30a-aeda-3c6e-90e295ae6108.mp3"
 alias man="BROWSER=chromium man -H"
 # Todo: Add task via ROFI
 # ta() { task add $1 due:$2;}
+
+
+#Basic Aliases
+alias v="vim"
+alias gv="gvim"
+alias sv="sudo vim"
+alias ls='ls --color=auto --group-directories-first'
+alias lsa='ls -A'
+alias b="cd .. && ls -a"
+alias q="exit"
+alias e="exit"
+
+alias PS="sudo pacman -S"
+alias PRns="sudo pacman -Rns"
+alias PSyu="sudo pacman -Syu"
+alias PSyyu="sudo pacman -Syyu"
+alias PQn="sudo pacman -Qn"
+
+#Term only
+alias mnt="sudo bash ~/.config/Scripts/mount.sh"
+alias umnt="sudo bash ~/.config/Scripts/unmount.sh"
+alias newnet="sudo systemctl restart NetworkManager"
+
+#etc
+alias Txa="cp ~/Documents/LaTeX/article.tex"
+alias Txs="cp ~/Documents/LaTeX/beamer.tex"
+alias Txh="cp ~/Documents/LaTeX/handout.tex"
+givegit() { git clone http://github.com/$1.git ;}
+alias h="cd ~ && ls -a"
+alias cf="cd ~/.config && ls -a"
+alias d="cd ~/Documents && ls -a"
+alias D="cd ~/Downloads && ls -a"
+alias pp="cd ~/Pictures && ls -a"
+alias pw="cd ~/Pictures/Wallpapers && ls -a"
+alias m="mutt"
+#alias cfb="vim ~/.config/Scripts/bashrc"
+alias cfb="vim ~/.bashrc"
+alias cfz="vim ~/.zshrc"
+alias cfv="vim ~/.vimrc"
+alias cfr="vim ~/.config/ranger/rc.conf"
+alias cfi="vim ~/.config/i3/config"
+alias cfm="vim ~/.config/mutt/muttrc"
+alias cff="vim ~/.config/Scripts/folders"
+alias cfc="vim ~/.config/Scripts/configs"
+alias cfg="vim ~/.config/mutt/gmail.conf"
+alias cfa="vim ~/.bash_aliases"

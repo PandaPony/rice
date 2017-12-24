@@ -1,3 +1,4 @@
+set encoding=utf-8
 set incsearch
 set ignorecase
 set smartcase
@@ -9,7 +10,7 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar" 
-set guifont=Monospace\ 10
+set guifont=Monospace\ 12
 let mapleader = " "
 set nocompatible              " be iMproved, required
 filetype off                  " required
