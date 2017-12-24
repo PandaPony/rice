@@ -124,7 +124,7 @@ autocmd Filetype vimwiki map <F4> :!pandoc<space><C-r>%<space>-o<space><C-r>%.pd
 " Todo Pipe > Handle pdf file size. Script below is proof (200MB > 2.9MB)
 "gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -sOutputFile=output.pdf input.pdf
 " http://vimcasts.org/episodes/how-to-fold/
-let g:NumberToggleTrigger="<F2>"
+nnoremap <silent> <F2> :set relativenumber!<cr>
 nn <F7> :setlocal spell! spell?<CR>
 nnoremap <esc><esc> :silent! nohls<cr>
 "nmap j gj

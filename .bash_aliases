@@ -1,9 +1,13 @@
 #Configs
 alias cfa="vim ~/.bash_aliases"
 
-#DevOps
 #Todo: Stop hardcoding punk
+
+#DevOps
+## WP-CLI & Ghostscript setup for comfy gravity flow testing
 alias f="wp gf form edit 4 --ssh=yes --path=\"/var/www/vhosts/i-0a1b40470e828a142\""
+
+##Full stack setup for automated acceptance testing - Docker, Codeception, PHP, Gravity Flow. Guide: https://www.stevenhenty.com/acceptance-testing-wordpress-plugins/
 alias tst="ssh -i ~/.ssh/UbuntuAWS.pem ubuntu@ec2-18-195-202-122.eu-central-1.compute.amazonaws.com"
 alias rdb="ssh wp@bb99s.myraidbox.de"
 # Check .ssh/config for line below ..ssh alias blabla
